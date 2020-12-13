@@ -15,19 +15,21 @@ func main() {
 	}
 	count := 0
 	for _, p := range pwd{
-		if isPasswordValid(p) {
+		if part2Isvalid(p) {
 			count++
 		}
 	}
 	fmt.Println(count)
 
 }
-
-func isPasswordValid(pwdr passwordAndRules)  bool{
-	//count := strings.Count(pwdr.password, pwdr.character)
-	//if count < pwdr.min || count > pwdr.max{
-	//	return false
-	//}
+func part1Isvalid(pwdr passwordAndRules)  bool{
+	count := strings.Count(pwdr.password, pwdr.character)
+	if count >= pwdr.min && count <= pwdr.max{
+		return true
+	}
+	return false
+}
+func part2Isvalid(pwdr passwordAndRules)  bool{
 	charAtMin := string(pwdr.password[pwdr.min - 1])
 	charAtMax := string(pwdr.password[pwdr.max - 1])
 
